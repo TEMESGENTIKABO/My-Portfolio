@@ -58,7 +58,7 @@ export default function Navbar() {
         <motion.div whileHover={{ scale: 1.05 }}>
           <Link
             href="/"
-            className="text-sm italic font-medium text-purple-600 dark:text-purple-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="text-sm  font-medium text-purple-600 dark:text-purple-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             Temesgen Gebremariam
           </Link>

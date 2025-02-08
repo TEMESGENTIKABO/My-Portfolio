@@ -1,10 +1,10 @@
 'use client';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 export const FloatingIcons = () => {
   const [positions, setPositions] = useState<{ left: string; top: string }[]>([]);
-  const icons = ['react', 'nextjs', 'nodejs', 'typescript'];
+  const icons = useMemo(() => ['react', 'nextjs', 'nodejs', 'typescript'], []);
 
   // Generate random positions for icons
   useEffect(() => {
@@ -14,7 +14,7 @@ export const FloatingIcons = () => {
         top: `${Math.random() * 100}%`,
       }))
     );
-  }, []);
+  }, [icons]);;
 
   if (!positions.length) return null; // Don't render on server
 
