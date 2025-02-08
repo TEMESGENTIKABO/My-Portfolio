@@ -36,3 +36,4 @@ A modern developer portfolio featuring animated sections, case-study style proje
 
 1. Clone the repository:
 ```bash
+git clone https://github.com/TEMESGENTIKABO/portfolio.git
