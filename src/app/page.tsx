@@ -1,101 +1,238 @@
-import Image from "next/image";
+"use client";
+import { Button } from "@/components/ui/button";
+import { HeroHighlight } from "@/components/HeroHighlight";
+import { FloatingIcons } from "@/components/FloatingIcons";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Suspense, useState } from "react";
+import SkillsSection from "@/components/SkillsSection";
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import ResumeButton from "@/components/ResumeButton";
+import {
+  Sun,
+  Moon,
+  Globe,
+  Mail,
+  Menu,
+  X,
+  GitHub,
+  Linkedin,
+} from "react-feather";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+  return (
+    <HeroHighlight>
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="md:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-50"
+        >
+          <div className="flex flex-col items-center justify-center h-full gap-6">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="absolute top-4 right-4"
+            >
+              <X className="h-8 w-8" />
+            </Button>
+            <Link
+              href="/contact"
+              className="text-2xl py-3 px-6 hover:bg-white/10 rounded-lg transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </Link>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Desktop Social Bar */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="hidden md:flex fixed right-6 top-1/2 -translate-y-1/2 flex-col gap-4 z-40"
+      >
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full shadow-lg hover:bg-white/20"
+        >
+          <Link
+            href="https://www.linkedin.com/in/temesgen-t-gebremariam-858483121/"
             target="_blank"
-            rel="noopener noreferrer"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            <Linkedin className="h-6 w-6" />
+          </Link>
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full shadow-lg hover:bg-white/20"
+        >
+          <Link href="https://github.com/TEMESGENTIKABO" target="_blank">
+            <GitHub className="h-6 w-6" />
+          </Link>
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full shadow-lg hover:bg-white/20"
+        >
+          <Link href="mailto:temesgen.letay@gmail.com">
+            <Mail className="h-6 w-6" />
+          </Link>
+        </Button>
+      </motion.div>
+
+      {/* Mobile Social Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 flex gap-4 z-40"
+      >
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full shadow-lg hover:bg-white/20"
+        >
+          <Link
+            href="https://www.linkedin.com/in/temesgen-t-gebremariam-858483121/"
             target="_blank"
-            rel="noopener noreferrer"
           >
-            Read our docs
-          </a>
+            <Linkedin className="h-6 w-6" />
+          </Link>
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full shadow-lg hover:bg-white/20"
+        >
+          <Link href="https://github.com/TEMESGENTIKABO" target="_blank">
+            <GitHub className="h-6 w-6" />
+          </Link>
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full shadow-lg hover:bg-white/20"
+        >
+          <Link href="mailto:temesgen.letay@gmail.com">
+            <Mail className="h-6 w-6" />
+          </Link>
+        </Button>
+      </motion.div>
+
+      {/* Theme and Language Controls */}
+      <div className="fixed top-4 right-4 flex gap-2 z-40">
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setIsDarkMode(!isDarkMode)}
+          className="rounded-full hover:bg-white/20"
+        >
+          {isDarkMode ? (
+            <Moon className="h-6 w-6" />
+          ) : (
+            <Sun className="h-6 w-6" />
+          )}
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full hover:bg-white/20"
+        >
+          <Globe className="h-6 w-6" />
+        </Button>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="md:hidden rounded-full hover:bg-white/20"
+          onClick={() => setIsMobileMenuOpen(true)}
+        >
+          <Menu className="h-6 w-6" />
+        </Button>
+      </div>
+
+      {/* Main Hero Content - Mobile Responsive Changes */}
+      <div className="min-h-screen flex items-center justify-center text-center px-4 relative max-md:pt-20">
+        <div className="max-w-4xl w-full">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-3xl xs:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight max-md:text-4xl max-md:leading-snug"
+          >
+            Full-Stack Developer{" "}
+            <motion.span
+              initial={{ backgroundPosition: "0% 50%" }}
+              animate={{ backgroundPosition: "100% 50%" }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "mirror",
+              }}
+              className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent bg-[length:200%_auto] max-md:block"
+            >
+              Code. Create.
+            </motion.span>{" "}
+            Deliver.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="text-base md:text-lg lg:text-xl text-gray-400 mb-8 md:mb-12 max-w-2xl mx-auto px-4 max-md:text-sm max-md:mb-6"
+          >
+            Specializing in modern web development with a focus on performance,
+            accessibility, and user-centric design.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex flex-col md:flex-row gap-3 justify-center w-full"
+          >
+            <Link href="/projects" className="w-full md:w-auto">
+              <Button className="w-full md:w-auto text-sm md:text-base py-3 px-4 md:py-4 md:px-6 rounded-full hover:scale-105 transition-transform">
+                Explore My Work →
+              </Button>
+            </Link>
+            <ResumeButton />
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:block"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <div className="animate-bounce w-8 h-14 rounded-full border-2 border-gray-400 flex items-center justify-center">
+            <div className="w-1 h-3 bg-gray-400 rounded-full mt-2" />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Sections Container */}
+      <div className="px-4 md:px-8 lg:px-16 xl:px-24 2xl:px-32 space-y-20 md:space-y-32">
+        <SkillsSection />
+        <AboutSection />
+        <ContactSection />
+      </div>
+
+      {/* Floating Icons with Suspense */}
+      <Suspense fallback={null}>
+        <FloatingIcons />
+      </Suspense>
+    </HeroHighlight>
   );
 }
