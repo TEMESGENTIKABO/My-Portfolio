@@ -1,29 +1,22 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { projects } from "@/data/projects";
 import ProjectDetails from "@/components/ProjectDetails";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 
 export default function ProjectsPage() {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const projectId = searchParams.get("id");
+  const [selectedProject, setSelectedProject] = useState<{ slug: string; image: string; title: string; categories: string[]; description: string; tech: string[]; demoUrl: string; githubUrl: string; problem: string; solution: string; metrics: string[]; } | null>(null);
 
-  // Find the selected project
-  const selectedProject = projects.find((p) => p.slug === projectId);
+  // Show project details if a project is selected
+  if (selectedProject) {
+    return (
+      <ProjectDetails
+        project={selectedProject}
+        onBack={() => setSelectedProject(null)}
+      />
+    );
+  }
 
-  return (
-    <div>
-      {/* Show project details if a project is selected */}
-      {selectedProject ? (
-        <ProjectDetails
-          project={selectedProject}
-          onBack={() => router.push("/projects")}
-        />
-      ) : (
-        // Show the projects grid if no project is selected
-        <ProjectsShowcase />
-      )}
-    </div>
-  );
+  // Show the projects grid if no project is selected
+  return <ProjectsShowcase onSelectProject={setSelectedProject} />;
 }
