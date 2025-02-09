@@ -104,7 +104,7 @@ export default function ProjectsShowcase() {
                   </Link>
                   {/* Details Button */}
                   <Link
-                    href={`/projects/${project.slug}`} // Update this to your project details route
+                    href={`/projects?id=${project.slug}`} // Use query parameter instead of dynamic route
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                   >
                     <FiInfo className="text-sm" />
