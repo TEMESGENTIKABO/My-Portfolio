@@ -1,8 +1,7 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
-import { FiArrowUpRight, FiGithub, FiArrowLeft } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { FiArrowUpRight, FiGithub, FiArrowLeft } from "react-icons/fi";
+import Image from "next/image";
 
 interface ProjectDetailsProps {
   project: {
@@ -15,7 +14,7 @@ interface ProjectDetailsProps {
     tech: string[];
     image: string;
   };
-  onBack: () => void; // Add a back handler
+  onBack: () => void;
 }
 
 export default function ProjectDetails({ project, onBack }: ProjectDetailsProps) {
@@ -41,14 +40,24 @@ export default function ProjectDetails({ project, onBack }: ProjectDetailsProps)
             <div className="absolute bottom-8 left-8 right-8">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{project.title}</h1>
               <div className="flex flex-wrap gap-4">
-                <Link href={project.demoUrl} target="_blank" className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl hover:bg-white/20 transition-colors">
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl hover:bg-white/20 transition-colors"
+                >
                   <FiArrowUpRight className="text-xl" />
                   <span>Live Demo</span>
-                </Link>
-                <Link href={project.githubUrl} target="_blank" className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl hover:bg-white/20 transition-colors">
+                </a>
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-xl hover:bg-white/20 transition-colors"
+                >
                   <FiGithub className="text-xl" />
                   <span>Source Code</span>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
