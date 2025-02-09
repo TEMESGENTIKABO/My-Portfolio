@@ -1,14 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
+import Link from "next/link";
 import Image from "next/image";
 import { FiArrowUpRight, FiGithub, FiInfo } from "react-icons/fi";
 
-interface ProjectsShowcaseProps {
-  onSelectProject: (project: { slug: string; image: string; title: string; categories: string[]; description: string; tech: string[]; demoUrl: string; githubUrl: string; }) => void;
-}
-
-export default function ProjectsShowcase({ onSelectProject }: ProjectsShowcaseProps) {
+export default function ProjectsShowcase() {
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
       <div className="container mx-auto px-4">
@@ -89,32 +86,30 @@ export default function ProjectsShowcase({ onSelectProject }: ProjectsShowcasePr
 
                 {/* Buttons */}
                 <div className="flex gap-2 pt-2">
-                  <a
+                  <Link
                     href={project.demoUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     <FiArrowUpRight className="text-sm" />
                     <span>Demo</span>
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href={project.githubUrl}
                     target="_blank"
-                    rel="noopener noreferrer"
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                   >
                     <FiGithub className="text-sm" />
                     <span>Code</span>
-                  </a>
+                  </Link>
                   {/* Details Button */}
-                  <button
-                    onClick={() => onSelectProject(project)}
+                  <Link
+                    href={`/projects?id=${project.slug}`} // Use query parameter instead of dynamic route
                     className="flex items-center gap-1.5 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 text-sm rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                   >
                     <FiInfo className="text-sm" />
                     <span>Details</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
