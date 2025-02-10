@@ -1,7 +1,8 @@
 'use client';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Terminal, Code, Cpu, Zap, Globe, Server, Coffee, Smile, GitMerge } from 'react-feather';
+import { Terminal, Cpu, Coffee, Smile, GitMerge } from 'react-feather';
 import { useRef } from 'react';
+import { Code, Smartphone, BarChart, Rocket, Banknote } from "lucide-react";
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -71,28 +72,43 @@ export default function AboutSection() {
             </div>
             <div className="space-y-4 md:space-y-6">
               {[
-                {
-                  year: '2018',
-                  title: 'First Production Deployment',
-                  tech: ['Node.js', 'MongoDB'],
-                  description: 'Deployed first REST API handling 10k+ daily requests',
-                  icon: <Server className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
-                },
-                {
-                  year: '2020',
-                  title: 'Enterprise System Architecture',
-                  tech: ['AWS', 'Kubernetes'],
-                  description: 'Led migration to microservices architecture',
-                  icon: <Globe className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
-                },
-                {
-                  year: '2023',
-                  title: 'OSS Contributions',
-                  tech: ['React', 'TypeScript'],
-                  description: 'Became core contributor to popular OSS projects',
-                  icon: <Zap className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
-                }
-              ].map((item, idx) => (
+   {
+    year: '2017',
+    title: 'Worked at Commercial Bank of Ethiopia',
+    tech: ['Banking Systems', 'Customer Service'],
+    description: 'Gained experience in banking operations, financial services, and customer support.',
+    icon: <Banknote className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+  },
+  {
+    year: '2021',
+    title: 'Transitioned to Full-Stack Development',
+    tech: ['React', 'Next.js', 'Node.js'],
+    description: 'Built and deployed web applications, focusing on front-end development with React and Next.js.',
+    icon: <Code className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+  },
+  {
+    year: '2023',
+    title: 'Launched Geez-Tigrinya Dictionary App',
+    tech: ['React Native', 'TypeScript', 'Firebase'],
+    description: 'Developed a mobile dictionary app to help users learn and translate Geez and Tigrinya.',
+    icon: <Smartphone className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+  },
+  {
+    year: '2024',
+    title: 'Pursuing MBA & Research in Data Mining',
+    tech: ['Python', 'Machine Learning', 'Data Analysis'],
+    description: 'Conducting research on data mining for brewery sales prediction while studying for an MBA in China.',
+    icon: <BarChart className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+  },
+  {
+    year: '2025',
+    title: 'Starting Sinkata Tech',
+    tech: ['Next.js', 'React Native', 'SaaS'],
+    description: 'Planning to launch a software development company focused on web and mobile solutions.',
+    icon: <Rocket className="w-4 h-4 md:w-5 md:h-5 text-emerald-400" />
+  }
+]
+.map((item, idx) => (
                 <motion.div
                   key={idx}
                   style={{ y }}
