@@ -7,11 +7,7 @@ import Image from "next/image";
 import { FiArrowUpRight, FiGithub, FiInfo } from "react-icons/fi";
 import { Project } from "@/data/projects";
 export default function ProjectsShowcase() {
-  // Ensure you have the correct import for Project type
-
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
-  // If a project is selected, show its details
   if (selectedProject) {
     return (
       <ProjectDetails
@@ -21,7 +17,6 @@ export default function ProjectsShowcase() {
     );
   }
 
-  // Otherwise, show the projects grid
   return (
     <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
       <div className="container mx-auto px-4">
