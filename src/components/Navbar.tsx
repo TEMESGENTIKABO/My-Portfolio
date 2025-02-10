@@ -54,15 +54,23 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        {/* Logo with Animation */}
-        <motion.div whileHover={{ scale: 1.05 }}>
-          <Link
-            href="/"
-            className="text-sm  font-medium text-purple-600 dark:text-purple-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-          >
-            Temesgen Gebremariam
-          </Link>
-        </motion.div>
+       {/* Logo with Animation */}
+<motion.div
+  whileHover={{ scale: 1.1, rotate: [-2, 2, -2, 0] }}
+  transition={{ type: "spring", stiffness: 300 }}
+  className="relative group inline-block"
+>
+  <Link
+    href="/"
+    className="text-sm md:text-base font-bold inline-block text-white drop-shadow-md"
+  >
+    <span className="relative block">
+      Temesgen Gebremariam
+      {/* Always visible underline */}
+      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-600 to-pink-600 transition-transform duration-300 origin-left group-hover:scale-x-110" />
+    </span>
+  </Link>
+</motion.div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">

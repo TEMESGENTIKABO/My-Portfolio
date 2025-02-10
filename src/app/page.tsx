@@ -180,9 +180,9 @@ export default function Home() {
               }}
               className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent bg-[length:200%_auto] max-md:block"
             >
-              Code. Create.
+            Create.  Code.  Deliver.
             </motion.span>{" "}
-            Deliver.
+           
           </motion.h1>
 
           <motion.p
