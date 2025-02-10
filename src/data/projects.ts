@@ -42,23 +42,26 @@ export const projects: Project[] = [
       "Built a headless commerce solution with Next.js for SSR/ISR, Redis for real-time caching, and GraphQL for efficient data fetching. Implemented a mobile-first responsive design with optimized Web Vitals scores.",
   },
   {
-    "slug": "inventory-management",
-    "title": "Akeza Inventory Management System",
-    "description": "A real-time inventory tracking and analytics platform for businesses.",
-    "tech": ["React", "WebSocket", "D3.js", "Express", "MongoDB", "Kubernetes"],
-    "metrics": [
+    slug: "inventory-management",
+    title: "Akeza Inventory Management System",
+    description:
+      "A real-time inventory tracking and analytics platform for businesses.",
+    tech: ["React", "WebSocket", "D3.js", "Express", "MongoDB", "Kubernetes"],
+    metrics: [
       "📦 10,000+ inventory items managed daily",
       "⏱️ 70% reduction in stock reconciliation time",
       "🔔 Automated alerts for low stock and anomalies",
-      "📊 Real-time tracking with 99.9% uptime"
+      "📊 Real-time tracking with 99.9% uptime",
     ],
-    "demoUrl": "https://akeza-inventory.onrender.com/",
-    "githubUrl": "https://github.com/TEMESGENTIKABO/",
-    "image": "/projects/inventory.jpg",
-    "categories": ["Inventory Management", "Business Analytics", "Automation"],
-    "problem": "Businesses struggled with inaccurate inventory tracking, delayed reporting, and stock discrepancies, leading to inefficiencies and revenue loss.",
-    "solution": "Built a real-time inventory management system with WebSocket integration for instant updates, D3.js for interactive analytics, and an automated alert system for proactive stock management. Implemented role-based access control and enterprise-grade security for data protection."
-  },  
+    demoUrl: "https://akeza-inventory.onrender.com/",
+    githubUrl: "https://github.com/TEMESGENTIKABO/",
+    image: "/projects/inventory.jpg",
+    categories: ["Inventory Management", "Business Analytics", "Automation"],
+    problem:
+      "Businesses struggled with inaccurate inventory tracking, delayed reporting, and stock discrepancies, leading to inefficiencies and revenue loss.",
+    solution:
+      "Built a real-time inventory management system with WebSocket integration for instant updates, D3.js for interactive analytics, and an automated alert system for proactive stock management. Implemented role-based access control and enterprise-grade security for data protection.",
+  },
   {
     slug: "ai-note-taking-bot",
     title: "AI-Powered Note-Taking Chatbot",
@@ -101,5 +104,27 @@ export const projects: Project[] = [
       "Job seekers often struggle to create well-structured, ATS-friendly resumes quickly and efficiently.",
     solution:
       "Developed an AI-driven resume builder with customizable templates, real-time editing, and ATS optimization. Integrated Firebase for cloud storage and Next.js for a seamless web experience.",
+  },
+  {
+    slug: "geez-tigrinya-dictionary",
+    title: "Geez-Tigrinya Dictionary App",
+    description:
+      "A mobile dictionary for learning and translating Geez and Tigrinya with ease.",
+    tech: ["React Native", "TypeScript", "Firebase", "Expo", "Redux"],
+    metrics: [
+      "📖 1000+ pages of dictionary content digitized",
+      "🔍 Instant search with fuzzy matching",
+      "🌙 Dark/Light mode for better readability",
+      "📱 100+ downloads within the first day",
+    ],
+    demoUrl:
+      "https://play.google.com/store/apps/details?id=com.geez_to_tigrinya.app&pcampaignid=web_share",
+    githubUrl: "https://github.com/SinkataApps/",
+    image: "/projects/geez.jpg",
+    categories: ["Education", "Language Learning", "Mobile"],
+    problem:
+      "Users lacked an easily accessible digital resource for learning and translating Geez and Tigrinya, making language learning difficult and inefficient.",
+    solution:
+      "Developed a user-friendly mobile dictionary with fast search capabilities, Geez font resizing, and offline support. Integrated Firebase for data storage and React Native for a smooth mobile experience.",
   },
 ];

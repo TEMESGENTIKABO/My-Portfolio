@@ -27,7 +27,7 @@ export interface SocialLink {
       {
         name: "Email",
         url: "mailto:temesgen.letay@gmail.com",
-        icon: "mail",
+        icon: "email",
       },
     ],
   };
