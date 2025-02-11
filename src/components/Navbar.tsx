@@ -103,26 +103,7 @@ export default function Navbar() {
           ))}
 
           {/* Social Icons */}
-          <div className="flex items-center space-x-4 ml-4">
-            <motion.a
-              whileHover={{ y: -2 }}
-              href="https://github.com/TEMESGENTIKABO"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-            >
-              <GitHub size={20} />
-            </motion.a>
-            <motion.a
-              whileHover={{ y: -2 }}
-              href="https://www.linkedin.com/in/temesgen-t-gebremariam-858483121/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-            >
-              <Linkedin size={20} />
-            </motion.a>
-          </div>
+         
         </div>
 
         {/* Mobile Menu Toggle */}
