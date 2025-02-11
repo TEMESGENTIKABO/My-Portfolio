@@ -54,23 +54,26 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
-       {/* Logo with Animation */}
-<motion.div
-  whileHover={{ scale: 1.1, rotate: [-2, 2, -2, 0] }}
-  transition={{ type: "spring", stiffness: 300 }}
-  className="relative group inline-block"
->
-  <Link
-    href="/"
-    className="text-sm md:text-base font-bold inline-block text-white drop-shadow-md"
-  >
-    <span className="relative block">
-      Temesgen Gebremariam
-      {/* Always visible underline */}
-      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-600 to-pink-600 transition-transform duration-300 origin-left group-hover:scale-x-110" />
-    </span>
-  </Link>
-</motion.div>
+        {/* Logo with Animation */}
+        <motion.div
+          whileHover={{ scale: 1.1, rotate: [-2, 2, -2, 0] }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+          className="relative group inline-block cursor-pointer"
+        >
+          <Link
+            href="/"
+            className="text-sm md:text-base font-bold inline-block text-white drop-shadow-md hover:drop-shadow-lg transition-all duration-300"
+          >
+            <span className="relative block">
+              Temesgen Gebremariam
+              {/* Animated underline with gradient */}
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-600 to-pink-600 transition-all duration-500 origin-left transform scale-x-0 group-hover:scale-x-105" />
+              {/* Optional: Add a subtle glow effect on hover */}
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-r from-purple-600 to-pink-600 blur-sm transition-opacity duration-500" />
+            </span>
+          </Link>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
